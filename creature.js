@@ -14,7 +14,7 @@ class Creature {
 		this.health = 1;
 
 		//did it receive DNA to copy
-		if (dna instanceof Array){
+		if (dna instanceof Array) {
 			this.dna = [];
 			//copy all dna info
 			for (var i = 0; i < dna.length; i++) {
@@ -28,7 +28,7 @@ class Creature {
 						//adjust perception radius
 						this.dna[i] = dna[i] + random(-10, 10);
 					}
-				//copy dna
+					//copy dna
 				} else {
 					this.dna[i] = dna[i];
 				}
@@ -40,8 +40,8 @@ class Creature {
 			//1: Attraction/Repulsion to poison
 			//2: Radius to sense food
 			//3: Radius to sense poison
-			this.dna = [random(-maxf, maxf), random(-maxf, maxf), 
-						random(5, 100), random(5, 100)];
+			this.dna = [random(-maxf, maxf), random(-maxf, maxf),
+			random(5, 100), random(5, 100)];
 		}
 	}
 
@@ -119,8 +119,8 @@ class Creature {
 	seek(target) {
 
 		// A vector pointing from the location to the target
-		var desired = p5.Vector.sub(target, this.position); 
-  		//var d = desired.mag();
+		var desired = p5.Vector.sub(target, this.position);
+		//var d = desired.mag();
 
 		// Scale to maximum speed
 		desired.setMag(this.maxspeed);
@@ -148,7 +148,7 @@ class Creature {
 		rotate(theta);
 
 		//More Info
-		if (debug.checked()) {
+		if (debug.checked) {
 			noFill();
 
 			//perception circle and line for food
@@ -185,7 +185,7 @@ class Creature {
 
 		if (this.position.y < d) {
 			desired = createVector(this.velocity.x, this.maxspeed);
-		}else if (this.position.y > height - d) {
+		} else if (this.position.y > height - d) {
 			desired = createVector(this.velocity.x, -this.maxspeed);
 		};
 

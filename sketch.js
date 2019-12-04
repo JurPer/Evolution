@@ -1,12 +1,10 @@
-
-
 var creatures = [];
 var food = [];
 var poison = [];
 
 var nutrition = [0.1, -1];
 
-//for addition info
+//for additional info
 var debug;
 
 
@@ -14,27 +12,27 @@ function setup() {
 
 	var canvas = createCanvas(800, 600);
 	canvas.parent("canvascontainer");
-	debug = select("#debug");
+	debug = document.getElementById("debug");
 	//frameRate(20);
 
 	//create 10 creatures
 	creatures.length = 10;
-	for(var i = 0; i < creatures.length; i++) {
+	for (var i = 0; i < creatures.length; i++) {
 		creatures[i] = new Creature(width / 2, height / 2);
 	}
 
 	//create food
-	for(var i = 0; i < 10; i++) {
+	for (var i = 0; i < 10; i++) {
 		food.push(createVector(random(width), random(height)));
 	}
 	//create food
-	for(var i = 0; i < 5; i++) {
+	for (var i = 0; i < 5; i++) {
 		poison.push(createVector(random(width), random(height)));
 	}
 }
 
 //add new vehicles by dragging mouse
-function mouseDragged(){
+function mouseDragged() {
 	creatures.push(new Creature(mouseX, mouseY));
 }
 
@@ -52,7 +50,7 @@ function draw() {
 	}
 
 	//iterate over all creature and call their functions
-	for(var i = creatures.length - 1; i >= 0; i--) {
+	for (var i = creatures.length - 1; i >= 0; i--) {
 		var c = creatures[i];
 
 		//Eat the food (index 0)
@@ -76,19 +74,19 @@ function draw() {
 				creatures.push(child);
 			}
 		}
-	}	
+	}
 
 	//draw food
 	fill(0, 255, 0);
 	noStroke();
-	for(var i = 0; i < food.length; i++) {
+	for (var i = 0; i < food.length; i++) {
 		ellipse(food[i].x, food[i].y, 7);
 	}
 
-		//draw food
+	//draw food
 	fill(255, 0, 0);
 	noStroke();
-	for(var i = 0; i < poison.length; i++) {
+	for (var i = 0; i < poison.length; i++) {
 		ellipse(poison[i].x, poison[i].y, 7);
 	}
 }
